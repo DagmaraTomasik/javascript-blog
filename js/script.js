@@ -26,20 +26,16 @@ function titleClickHandler(event){
   }
   /* get 'href' attribute from the clicked link */
 
-  const articleSelector = document.querySelectorAll('article');
-
-  clickedElement.getAttribute('href');
-  console.log(articleSelector);
-
+  const artcileSelector = clickedElement.getAttribute('href');
+  console.log(artcileSelector);
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
-  const  targetArticle = document.querySelector('article');
-  console.log(targetArticle);
+  const targetArticle = document.querySelector('artcileSelector');
 
   /* add class 'active' to the correct article */
 
-  targetArticle.classList.add('active');
+  artcileSelector.classList.add('active');
   console.log(targetArticle);
 }
 
