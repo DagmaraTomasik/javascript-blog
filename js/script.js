@@ -19,7 +19,7 @@ function titleClickHandler(event){
 
   /* [DONE] remove class 'active' from all articles */
 
-  const activeArticles = document.querySelectorAll('article .active');
+  const activeArticles = document.querySelectorAll('.posts article.active');
 
   for(let activeArticle of activeArticles){
     activeArticle.classList.remove('active');
@@ -31,11 +31,12 @@ function titleClickHandler(event){
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
-  const targetArticle = document.querySelector('artcileSelector');
+  const targetArticle = document.querySelector(artcileSelector);
+  console.log(targetArticle);
 
   /* add class 'active' to the correct article */
 
-  artcileSelector.classList.add('active');
+  targetArticle.classList.add('.active');
   console.log(targetArticle);
 }
 
