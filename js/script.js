@@ -39,6 +39,8 @@ function titleClickHandler(event){
   targetArticle.classList.add('active');
 }
 
+/* */
+
 const links = document.querySelectorAll('.titles a');
 
 for(let link of links){
@@ -53,9 +55,8 @@ function generateTitleLinks(){
 
   /* remove contents of titleList */
 
-  function clearMessages(){
-	document.querySelector('optTitleListSelector').innerHTML = '';
-}
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = "";
 
   /* for each article */
 
