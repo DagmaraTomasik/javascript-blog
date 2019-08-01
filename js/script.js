@@ -40,7 +40,7 @@ function generateTitleLinks(){
   /* remove contents of titleList */
 
   const titleList = document.querySelector(optTitleListSelector);
-  titleList.innerHTML = "";
+  titleList.innerHTML = '';
 
   /* for each article */
 
@@ -76,7 +76,7 @@ function generateTitleLinks(){
   const links = document.querySelectorAll('.titles a');
 
   for (let link of links) {
-  link.addEventListener('click', titleClickHandler);
+    link.addEventListener('click', titleClickHandler);
   }
 
   document.querySelector('.titles a').classList.add('active');
