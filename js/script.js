@@ -220,3 +220,85 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
+
+const optArticleAuthorSelector = '.post-author';
+
+function generateAutors(){
+
+/* find class active in "article"*/
+
+const activeArticles = document.querySelectorAll('.post.active')
+
+/* make LOOP for articles and add class active*/
+
+  for(let activeArticle of activeArticles){
+    activeArticle.classList.add('active');
+  }
+
+/* find all authors */
+
+const authors = document.querySelectorAll(optArticleSelector);
+
+/* START LOOP: for every article */
+
+for (let author of authors){
+  /* find autor wrapper*/
+
+  const authorLinks = author.querySelector(optArticleAuthorSelector);
+
+  /* make html variable with empty string */
+
+  let html = ' ';
+
+  /* get autor from data-authot attribute */
+
+  const dataAuthor = author.getAttribute('data-author');
+  console.log(dataAuthor);
+
+  /* generate HTML of the link */
+
+  const linkHTML = '<span>by</span><a href="'+ dataAuthor +'">'+ dataAuthor +'</a>';
+
+  /* add generated code to html variable */
+
+  html = html + linkHTML;
+
+  /* insert HTML of all the links into the tags wrapper */
+
+  authorsWraper.insertAdjacentHTML('afterbegin', html);
+
+}
+}
+generateAutors();
+
+const optAuthorLinkSelector =  '.post-author a';
+
+function authorClickHandler(event){
+  event.preventDefault();
+  const clickedElement = this;
+  console.log('Author was clicked', clickedElement);
+
+  /*get attribute 'href' from clickedElement*/
+
+  const href = clickedElement.getAttribute('href');
+
+  generateTitleLinks('[data-author ="' + href + '"]');
+}
+
+
+function addClickListenersToAuthors(){
+
+  /* find links to authors*/
+
+  const authors = document.querySelectorAll(optAuthorLinkSelector);
+
+  /*start LOOP for all links*/
+
+  for(let author of authors){
+  author.addEventListener('click', authorClickHandler);
+
+  /*end LOOP for each link*/
+  }
+}
+
+addClickListenersToAuthors();
