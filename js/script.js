@@ -80,7 +80,7 @@ function generateTitleLinks(){
     }
 
     document.querySelector('.titles a').classList.add('active');
-  }
+  
 }
 
 const optArticleSelector = '.post',
