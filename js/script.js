@@ -114,4 +114,6 @@ function generateTags(){
   /* END LOOP: for every article: */
 }
 
+const optArticleTagsSelector = '.post-tags .list';
+
 generateTags();
