@@ -90,7 +90,7 @@ generateTitleLinks();
 
 const optArticleTagsSelector = '.post-tags .list';
 const optArticleTagsElementSelector = '.post-tags .list li';
-//const optTagsListSelector = '.tags.list';
+const optTagsListSelector = '.tags.list';
 const optCloudClassCount = '5';
 const optCloudClassPrefix = 'tag-size-';
 
@@ -171,14 +171,14 @@ function generateTags(){
 
       if(!allTags.hasOwnProperty(tag)){
 
-        /* [NEW] add tag to allTags object */
+      /* [NEW] add tag to allTags object */
 
         allTags[tag]=1;
       }else {
         allTags[tag]++;
       }
 
-      /* END LOOP: for each tag */
+    /* END LOOP: for each tag */
 
     }
 
