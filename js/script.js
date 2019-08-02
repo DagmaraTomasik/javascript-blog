@@ -90,23 +90,23 @@ generateTitleLinks();
 
 const optArticleTagsSelector = '.post-tags .list';
 const optArticleTagsElementSelector = '.post-tags .list li';
-const optTagsListSelector = '.tags.list';
+//const optTagsListSelector = '.tags.list';
 const optCloudClassCount = '5';
 const optCloudClassPrefix = 'tag-size-';
 
 function calculateTagsParams(tags){
 
-  const params = {max: '0', min: '999999'}
-  console.log(params)
+  const params = {max: '0', min: '999999'};
+  console.log(params);
 
   for(let tag in tags){
-  console.log(tag + ' is used ' + tags[tag] + ' times ');
+    console.log(tag + ' is used ' + tags[tag] + ' times ');
 
     if(tags[tag] > params.max){
-    params.max = tags[tag];
+      params.max = tags[tag];
     }
     else if(tags[tag] < params.min){
-    params.min = tags[tag];
+      params.min = tags[tag];
     }
   }
   return params;
@@ -115,8 +115,11 @@ function calculateTagsParams(tags){
 function calculateTagClass(count, params){
 
   const normalizedCount = count - params.min;
+  const normalizedMax = params.max - params.min;
   const percentage = normalizedCount / normalizedMax;
   const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+
+  return classNumber;
 
 }
 
@@ -179,28 +182,29 @@ function generateTags(){
 
     }
 
-  /* [NEW] find list of tags in right column */
-  const tagList = document.querySelector('.tags');
+    /* [NEW] find list of tags in right column */
 
-  const tagsParams = calculateTagsParams(allTags);
-  console.log('tagsParams:', tagsParams);
+    const tagList = document.querySelector('.tags');
 
-  /* [NEW] create variable for all links HTML code */
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
 
-  let allTagsHTML=' ';
+    /* [NEW] create variable for all links HTML code */
 
-  /* [NEW] START LOOP: for each tak in allTags */
+    let allTagsHTML=' ';
 
-  for(let tag in allTags){
+    /* [NEW] START LOOP: for each tak in allTags */
 
-    const tagLinkHTML = '<li><a class="'+ optCloudClassPrefix + calculateTagClass(allTags[tag], tagsParams) +'" href ="#tag-'+ tag +'">' + tag + '</a>(' + allTags[tag] + ')</li> ';
-    console.log('tagLinkHTML:', tagLinkHTML);
+    for(let tag in allTags){
 
-    /* [NEW] generate code of a link and add it to allTagsHTML */
+      const tagLinkHTML = '<li><a class="'+ optCloudClassPrefix + calculateTagClass(allTags[tag], tagsParams) +'" href ="#tag-'+ tag +'">' + tag + '</a>(' + allTags[tag] + ')</li> ';
+      console.log('tagLinkHTML:', tagLinkHTML);
 
-    allTagsHTML += tagLinkHTML;
+      /* [NEW] generate code of a link and add it to allTagsHTML */
 
-    /* [NEW] END LOOP: for each tag in allTags */
+      allTagsHTML += tagLinkHTML;
+
+      /* [NEW] END LOOP: for each tag in allTags */
 
     }
 
