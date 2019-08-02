@@ -39,12 +39,12 @@ function generateTitleLinks(customSelector = '') {
 
   /* remove contents of titleList */
 
-  const titleList = document.querySelector(optTitleListSelector + customSelector);
+  const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
 
   /* for each article */
 
-  const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
   let html = '';
 
@@ -224,16 +224,6 @@ addClickListenersToTags();
 const optArticleAuthorSelector = '.post-author';
 
 function generateAutors(){
-
-  /* find class active in "article"*/
-
-  const activeArticles = document.querySelectorAll('.post.active');
-
-  /* make LOOP for articles and add class active*/
-
-  for(let activeArticle of activeArticles){
-    activeArticle.classList.add('active');
-  }
 
   /* find all authors */
 
