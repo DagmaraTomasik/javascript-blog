@@ -368,19 +368,17 @@ function generateAutors(){
 
     if(!allAuthors.hasOwnProperty(author)){
 
-    /* [NEW] add author to allAuthors object */
+      /* [NEW] add author to allAuthors object */
 
-      allAuthors[author]=1;
-    } else {
-      allAuthors[author]++;
-    }
+      allAuthors[dataAuthor] = dataAuthor;
+      }
 
     /* [NEW] find list of authors in right column */
 
     const authorList = document.querySelector('.authors');
 
     const authorsParams = calculateAuthorsParams(allAuthors);
-    console.log('authorsParams:', authorsParams);
+    console.log(authorsParams);
 
     /* [NEW] create for all link HTML code */
 
@@ -390,12 +388,12 @@ function generateAutors(){
 
     for (let author in allAuthors){
 
-      const authorLinkHTML = '<li><a class="'+ optAuthorCloudClassPrefix + calculateAuthorClass(allAuthors[author], authorsParams) +'" href ="#autor-'+ author +'">' + author + '</a>(' + allAuthors[author] + ')</li> ';
+      const authorLinkHTML = '<li><a class="'+ optAuthorCloudClassPrefix + calculateAuthorClass(allAuthors[author], authorsParams) +'" href ="#autor-'+ author +'">' + author + '</a></li> ';
       console.log('authorLinkHTML:', authorLinkHTML);
 
       /* [NEW] generate code of a link and add it to allAuthorsHTML */
 
-      allAuthors += authorLinkHTML;
+      allAuthorsHTML += authorLinkHTML;
 
       /* [NEW] END LOOP: for each author in allAuthors */
     }
