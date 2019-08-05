@@ -6,7 +6,7 @@ const templates = {
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
   authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
-}
+};
 
 function titleClickHandler(event){
   event.preventDefault();
@@ -345,7 +345,7 @@ function calculateAuthorClass (count, params){
   return classNumber;
 }
 
-function generateAutors(){
+function generateAuthors(){
 
   /* [NEW] create a new variable allAuthors with an empty object */
 
@@ -358,7 +358,7 @@ function generateAutors(){
   /* START LOOP: for every article */
 
   for (let author of authors){
-  /* find autor wrapper*/
+  /* find author wrapper*/
 
     const authorLinks = author.querySelector(optArticleAuthorSelector);
 
@@ -366,7 +366,7 @@ function generateAutors(){
 
     let html = ' ';
 
-    /* get autor from data-authot attribute */
+    /* get author from data-authot attribute */
 
     const dataAuthor = author.getAttribute('data-author');
     console.log(dataAuthor);
@@ -384,10 +384,10 @@ function generateAutors(){
 
     if(!allAuthors.hasOwnProperty(author)){
 
-      /* [NEW] add author to allAuthors object */
+    /* [NEW] add author to allAuthors object */
 
       allAuthors[dataAuthor] = dataAuthor;
-      }
+    }
 
     /* [NEW] find list of authors in right column */
 
@@ -398,13 +398,13 @@ function generateAutors(){
 
     /* [NEW] create for all link HTML code */
 
-    const allAuthorsData = {autors: []};
+    const allAuthorsData = {authors: []};
 
     /* [NEW] START LOOP: for each author in allAuthors */
 
     for (let author in allAuthors){
 
-      const authorLinkHTML = '<li><a class="'+ optAuthorCloudClassPrefix + calculateAuthorClass(allAuthors[author], authorsParams) +'" href ="#autor-'+ author +'">' + author + '</a></li> ';
+      const authorLinkHTML = '<li><a class="'+ optAuthorCloudClassPrefix + calculateAuthorClass(allAuthors[author], authorsParams) +'" href ="#author-'+ author +'">' + author + '</a></li> ';
       console.log('authorLinkHTML:', authorLinkHTML);
 
       /* [NEW] generate code of a link and add it to allAuthorsHTML */
@@ -428,7 +428,7 @@ function generateAutors(){
 
   }
 }
-generateAutors();
+generateAuthors();
 
 const optAuthorLinkSelector =  '.post-author a';
 
