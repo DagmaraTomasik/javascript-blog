@@ -442,14 +442,14 @@ function authorClickHandler(event){
     authorLink.classList.add('active');
   }
 
-  generateTitleLinks('[data-author~="' + author + '"]');
+  generateTitleLinks('[data-author="' + author + '"]');
 }
 
 function addClickListenersToAuthors(){
 
   /* find links to authors*/
 
-  const links = document.querySelectorAll(optAuthorsListSelector);
+  const links = document.querySelectorAll(optAuthorsListSelector + ' a');
 
   /*start LOOP for all links*/
 
